@@ -3,23 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Admin - Users</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/modal.css">
+    <title>Makimo | Super IT Admin Users</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <link rel="stylesheet" href="../css/it admin-user.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="superadmin_landing.html">Home</a>
-        <a href="superadmin_profile.html">Profile</a>
-        <a href="superadmin_discounts.html">Discounts</a>
-        <a href="superadmin_leaderboard.html">Leaderboard</a>
-        <a href="superadmin_user.html">Users</a>
-        <a href="superadmin_levels.html">Levels</a>
-        <a href="#" id="logout">Logout</a>
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="41">
+            <h5>Super IT Admin</h5>
+        </div>
+        <ul class="side-menu top">
+            <li><a href="superadmin_landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="superadmin_profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li><a href="superadmin_discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li><a href="superadmin_leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li class="active"><a href="superadmin_user.html"><i class='bx bxs-group'></i>Users</a></li>
+            <li><a href="superadmin_levels.html"><i class='bx bxs-bar-chart-alt-2'></i>Levels</a></li>
+            <li><a href="#" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-    <div class="main-content">
-        <h1>Super Admin - Users</h1>
-        <div id="user-container">
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Super IT Admin - Users</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Super IT Admin</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="./superadmin_user.html" class="active">Users</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <table id="user-table">
                 <thead>
                     <tr>
@@ -37,10 +64,10 @@
                     <!-- Users will be dynamically inserted here -->
                 </tbody>
             </table>
-        </div>
+        </main>
     </div>
 
-    <!-- Modal for updating user -->
+    <!-- Modal for updating profile -->
     <div id="updateUserModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -56,11 +83,7 @@
                 <label for="modalEmail">Email:</label>
                 <input type="email" id="modalEmail" name="email" required>
                 <label for="modalRole">Role:</label>
-                <select id="modalRole" name="role" required>
-                    <option value="user">User</option>
-                    <option value="itAdmin">IT Admin</option>
-                    <option value="superadmin">Super Admin</option>
-                </select>
+                <input type="text" id="modalRole" name="role" disabled>
                 <label for="modalCreatedAt">Created At:</label>
                 <input type="text" id="modalCreatedAt" name="createdAt" disabled>
                 <label for="modalUpdatedAt">Updated At:</label>
@@ -70,6 +93,8 @@
         </div>
     </div>
 
+
     <script src="../js/superadmin_user.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,158 @@
+/* Additional styles for discounts page */
+
+#discountsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+#discountsTable th, #discountsTable td {
+    padding: 12px 15px;
+    border: 1px solid var(--grey);
+    text-align: left;
+}
+
+#discountsTable th {
+    background-color: #fefefe;
+    color: #000;
+}
+
+#discountsTable tbody tr:nth-child(even) {
+    background-color: var(--light-grey);
+}
+
+#discountsTable tbody tr:hover {
+    background-color: var(--grey);
+}
+
+#usedDiscountsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+#usedDiscountsTable th, #usedDiscountsTable td {
+    padding: 12px 15px;
+    border: 1px solid var(--grey);
+    text-align: left;
+}
+
+#usedDiscountsTable th {
+    background-color: #fefefe;
+    color: #000;
+}
+
+#usedDiscountsTable tbody tr:nth-child(even) {
+    background-color: var(--light-grey);
+}
+
+#usedDiscountsTable tbody tr:hover {
+    background-color: var(--grey);
+}
+
+/* Form Container styles */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.form-container label {
+    flex: 1 1 100%;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.form-container input {
+    flex: 1 1 45%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createDiscountButton {
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+/* Additional styles for modals and forms */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#discountForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#discountForm label {
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+#discountForm input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+}
+
+#discountForm button {
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#discountForm button:hover {
+    background-color: var(--dark);
+}

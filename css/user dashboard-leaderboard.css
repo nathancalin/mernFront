@@ -1,0 +1,32 @@
+/* General sidebar and main content styles */
+/* Already provided in previous instructions */
+
+/* Specific styles for leaderboard page */
+#leaderboardContainer {
+    margin-top: 20px;
+}
+
+#leaderboardContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#leaderboardContainer th, #leaderboardContainer td {
+    padding: 12px 15px;
+    border: 1px solid var(--grey);
+    text-align: left;
+}
+
+#leaderboardContainer th {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+#leaderboardContainer tbody tr:nth-child(even) {
+    background-color: var(--light-grey);
+}
+
+#leaderboardContainer tbody tr:hover {
+    background-color: var(--grey);
+}

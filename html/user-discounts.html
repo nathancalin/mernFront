@@ -3,43 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Discounts</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Makimo | User Discounts</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <link rel="stylesheet" href="../css/user dashboard-discounts.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="landing.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="user-discounts.html">Discounts</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="#" id="logout">Logout</a>
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="50">
+            <h5>User Dashboard</h5>
+        </div>
+        <ul class="side-menu top">
+            <li><a href="landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li class="active"><a href="user-discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li><a href="leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li><a href="#" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-    <div class="main-content">
-        <h1>Available Discounts</h1>
-        <div class="pagination">
-            <button id="prevButton">Previous</button>
-            <span id="paginationInfo">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
-            <button id="nextButton">Next</button>
-        </div>   
-        
-        <table id="discountsTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Unique Code</th>
-                    <th>Expiry Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="discountsBody">
-                <!-- Discounts will be dynamically inserted here -->
-            </tbody>
-        </table>
-        <h1>Claimed Discounts</h1>
-        <div id="claimedDiscounts"></div>
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Available Discounts</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">User</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="./user-discounts.html" class="active">Discounts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pagination">
+                <button id="prevButton">Previous</button>
+                <span id="paginationInfo">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                <button id="nextButton">Next</button>
+            </div>   
+            <table id="discountsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Unique Code</th>
+                        <th>Expiry Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="discountsBody">
+                    <!-- Discounts will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <h1>Claimed Discounts</h1>
+            <div id="claimedDiscounts"></div>
+        </main>
     </div>
-
     <script src="../js/user-discounts.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

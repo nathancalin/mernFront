@@ -3,35 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Admin - Levels</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/modal.css">
+    <title>Makimo | IT Admin Levels</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <link rel="stylesheet" href="../css/it admin-levels.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="itadmin_landing.html">Home</a>
-        <a href="itadmin_profile.html">Profile</a>
-        <a href="itadmin_discounts.html">Discounts</a>
-        <a href="itadmin_leaderboard.html">Leaderboard</a>
-        <a href="itadmin_user.html">Users</a>
-        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
-        <a href="#" id="logout">Logout</a>
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="41">
+            <h5>IT Admin Dashboard</h5>
+        </div>
+        <ul class="side-menu top">
+            <li><a href="itadmin_landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="itadmin_profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li><a href="itadmin_discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li><a href="itadmin_leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li><a href="itadmin_user.html"><i class='bx bxs-group'></i>Users</a></li>
+            <li class="active"><a href="itadmin_levels.html"><i class='bx bxs-bar-chart-alt-2'></i>Levels</a></li>
+            <li><a href="#" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-    <div class="main-content">
-        <h1>IT Admin - Levels</h1>
-        <div id="level-container">
-            <form id="createLevelForm">
-                <h2>Create Level</h2>
-                <label for="levelNumber">Level Number:</label>
-                <input type="number" id="levelNumber" name="levelNumber" required>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" required>
-                <label for="difficulty">Difficulty:</label>
-                <input type="text" id="difficulty" name="difficulty" required>
-                <label for="maxScore">Max Score:</label>
-                <input type="number" id="maxScore" name="maxScore" required>
-                <button type="submit">Create Level</button>
-            </form>
+
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>IT Admin - Levels</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">IT Admin</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="./itadmin_levels.html" class="active">Levels</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form id="createLevelForm">
+                    <h2>Create Level</h2>
+                    <label for="levelNumber">Level Number:</label>
+                    <input type="number" id="levelNumber" name="levelNumber" required>
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" required>
+                    <label for="difficulty">Difficulty:</label>
+                    <input type="text" id="difficulty" name="difficulty" required>
+                    <label for="maxScore">Max Score:</label>
+                    <input type="number" id="maxScore" name="maxScore" required>
+                    <button id="createdLevelButton" type="submit">Create Level</button>
+                </form>
+            </div>
+            
+            <!-- Success Notification -->
+            <div id="successNotification" style="display:none; color: rgb(255, 145, 0); margin-top: 10px;">
+                Level Created Successfully!
+            </div>
+            
             <table id="level-table">
                 <thead>
                     <tr>
@@ -44,12 +82,12 @@
                 </thead>
                 <tbody id="level-table-body">
                     <!-- Levels will be dynamically inserted here -->
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
 
-    <!-- Modal for updating level -->
     <div id="updateLevelModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -71,5 +109,6 @@
 
     <script src="../js/auth.js"></script>
     <script src="../js/itadmin_levels.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

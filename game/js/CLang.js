@@ -38,7 +38,7 @@ TEXT_SURE = "ARE YOU SURE?";
 
 TEXT_IOS_PRIVATE = 'Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some info may not save or some features may not work properly';
 
-TEXT_SHARE_IMAGE = "200x200.jpg";
+TEXT_SHARE_IMAGE = "200x200.png";
 TEXT_SHARE_TITLE = "Congratulations!";
 TEXT_SHARE_MSG1 = "You collected <strong>";
 TEXT_SHARE_MSG2 = " points</strong>!<br><br>Share your score with your friends!";

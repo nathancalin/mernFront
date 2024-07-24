@@ -1,0 +1,52 @@
+/* Additional styles for discounts page */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pagination button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: var(--dark);
+}
+
+#discountsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+#discountsTable th, #discountsTable td {
+    padding: 12px 15px;
+    border: 1px solid var(--grey);
+    text-align: left;
+}
+
+#discountsTable th {
+    background-color: #fefefe;
+    color: #000;
+}
+
+#discountsTable tbody tr:nth-child(even) {
+    background-color: var(--light-grey);
+}
+
+#discountsTable tbody tr:hover {
+    background-color: var(--grey);
+}
+
+#claimedDiscounts {
+    margin-top: 20px;
+}

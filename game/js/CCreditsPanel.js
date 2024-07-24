@@ -28,9 +28,9 @@ function CCreditsPanel(){
         _oButLogo = new CGfxButton(CANVAS_WIDTH/2, CANVAS_HEIGHT/2 - 175, oSprite, s_oStage);
         _oButLogo.addEventListener(ON_MOUSE_UP, this._onLogoButRelease, this);
        
-        _oLink = new CFormatText(CANVAS_WIDTH/2, CANVAS_HEIGHT/2+10, "www.codethislab.com", "#ffffff", s_oStage, "#000000", 40, "center");
+        _oLink = new CFormatText(CANVAS_WIDTH/2, CANVAS_HEIGHT/2+10, "Thank you for playing!", "#ffffff", s_oStage, "#000000", 40, "center");
        
-        _oMsgText3 = new CTextButtonNoSprite(CANVAS_WIDTH/2, 1200, "> You can buy our games licenses here <", "#ffffff", s_oStage, "#000000", 42);
+        _oMsgText3 = new CTextButtonNoSprite(CANVAS_WIDTH/2, 1200, "> Check out Makimoto's menu here! <", "#ffffff", s_oStage, "#000000", 42);
         _oMsgText3.addEventListener(ON_MOUSE_UP, this._onMoreGamesReleased, this);
         _oMsgText3.setWidth(600);
         
@@ -54,11 +54,11 @@ function CCreditsPanel(){
     };
     
     this._onLogoButRelease = function(){
-        window.open("http://www.codethislab.com/index.php?&l=en");
+        window.open("");
     };
     
     this._onMoreGamesReleased = function(){
-        window.open("http://codecanyon.net/collections/5409142-games?ref=codethislab");
+        window.open("https://www.facebook.com/MakimotoSushiBarRestaurant");
     };
     
     this._init();

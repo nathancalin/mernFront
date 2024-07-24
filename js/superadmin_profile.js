@@ -137,7 +137,7 @@ function updateProfile(profile) {
     const email = profile.email;
     const token = localStorage.getItem('token');
 
-    fetch(`https://makimobackend.onrender.com/api/profiles/admin/update/${userId}`, {
+    fetch(`https://makimobackend.onrender.com/profiles/admin/update/${userId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

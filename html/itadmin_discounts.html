@@ -3,72 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Admin - Discounts</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/modal.css">
+    <title>Makimo | IT Admin Discounts</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <link rel="stylesheet" href="../css/it admin-discounts.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="itadmin_landing.html">Home</a>
-        <a href="itadmin_profile.html">Profile</a>
-        <a href="itadmin_discounts.html">Discounts</a>
-        <a href="itadmin_leaderboard.html">Leaderboard</a>
-        <a href="itadmin_user.html">Users</a>
-        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
-        <a href="#" id="logout">Logout</a>
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="41">
+            <h5>IT Admin Dashboard</h5>
+        </div>
+        <ul class="side-menu top">
+            <li><a href="itadmin_landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="itadmin_profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li class="active"><a href="itadmin_discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li><a href="itadmin_leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li><a href="itadmin_user.html"><i class='bx bxs-group'></i>Users</a></li>
+            <li><a href="itadmin_levels.html"><i class='bx bxs-bar-chart-alt-2'></i>Levels</a></li>
+            <li><a href="#" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-    <div class="main-content">
-        <h1>IT Admin Discounts</h1>
-        <p>This is the IT Admin discounts page.</p>
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>IT Admin - Discounts</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">IT Admin</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="./itadmin_discounts.html" class="active">Discounts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-        <!-- Create Discount Form -->
-        <div>
-            <label for="createName">Name:</label>
-            <input type="text" id="createName" required>
-            <label for="createDescription">Description:</label>
-            <input type="text" id="createDescription" required>
-            <label for="createUniqueCode">Unique Code:</label>
-            <input type="text" id="createUniqueCode" required>
-            <label for="createExpiryDate">Expiry Date:</label>
-            <input type="date" id="createExpiryDate" required>
-            <button id="createDiscountButton">Create New Discount</button>
-        </div>
+            <!-- Create Discount Form -->
+            <div class="form-container">
+                <h1>Create New Discount</h1>
+                <label for="createName">Name:</label>
+                <input type="text" id="createName" required>
+                <label for="createDescription">Description:</label>
+                <input type="text" id="createDescription" required>
+                <label for="createUniqueCode">Unique Code:</label>
+                <input type="text" id="createUniqueCode" required>
+                <label for="createExpiryDate">Expiry Date:</label>
+                <input type="date" id="createExpiryDate" required>
+                <button id="createDiscountButton">Create New Discount</button>
+            </div>
 
-        <!-- Success Notification -->
-        <div id="successNotification" style="display:none; color: green; margin-top: 10px;">
-            Discount created successfully!
-        </div>
+             <!-- Success Notification -->
+            <div id="successNotification" style="display:none; color: rgb(255, 145, 0); margin-top: 10px;">
+                Discount created successfully!
+            </div>
 
-        <h2>Unused Discounts</h2>
-        <table id="discountsTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Unique Code</th>
-                    <th>Expiry Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Discounts will be dynamically inserted here -->
-            </tbody>
-        </table>
+            <h1>Unused Discounts</h1>
+            <table id="discountsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Unique Code</th>
+                        <th>Expiry Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Discounts will be dynamically inserted here -->
+                </tbody>
+            </table>
 
-        <h2>Used Discounts</h2>
-        <table id="usedDiscountsTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Unique Code</th>
-                    <th>Expiry Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Used discounts will be dynamically inserted here -->
-            </tbody>
-        </table>
+            <h1>Used Discounts</h1>
+            <table id="usedDiscountsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Unique Code</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Used discounts will be dynamically inserted here -->
+                </tbody>
+            </table>
+
+        </main>
 
         <!-- Modal for Creating/Updating Discount -->
         <div id="editModal" class="modal">
@@ -91,7 +121,9 @@
             </div>
         </div>
     </div>
+
     <script src="../js/auth.js"></script>
     <script src="../js/itadmin_discounts.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

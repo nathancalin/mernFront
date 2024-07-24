@@ -3,25 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Makimo | User Leaderboard</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <link rel="stylesheet" href="../css/user dashboard-leaderboard.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="landing.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="user-discounts.html">Discounts</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="#" id="logout">Logout</a>
-    </div>
-    <div class="main-content">
-        <h1>Leaderboard</h1>
-        <div id="leaderboardContainer">
-            <!-- Leaderboard content will be dynamically inserted here -->
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="50">
+            <h5>User Dashboard</h5>
         </div>
+        <ul class="side-menu top">
+            <li><a href="landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li><a href="user-discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li class="active"><a href="leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li><a href="#" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Leaderboard</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">User</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="./leaderboard.html" class="active">Leaderboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="leaderboardContainer">
+                <!-- Leaderboard content will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
     <script src="../js/auth.js"></script>
     <script src="../js/leaderboard.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

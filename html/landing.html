@@ -3,23 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Makimo | User Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/user dashboard.css">
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidenav">
-        <a href="landing.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="user-discounts.html">Discounts</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="#" id="logout">Logout</a>
+    <div id="sidebar" class="sidenav">
+        <div class="brand">
+            <img src="../assets/favicon.png" alt="Logo" width="50">
+            <h5>User Dashboard</h5>
+        </div>
+        <ul class="side-menu top">
+            <li class="active"><a href="landing.html"><i class='bx bxs-dashboard'></i>Home</a></li>
+            <li><a href="profile.html"><i class='bx bxs-user'></i>Profile</a></li>
+            <li><a href="user-discounts.html"><i class='bx bxs-discount'></i>Discounts</a></li>
+            <li><a href="leaderboard.html"><i class='bx bxs-medal'></i>Leaderboard</a></li>
+            <li><a href="" class="logout" id="logout"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul>
     </div>
-    <div class="main-content">
-        <h1>Welcome to the Landing Page</h1>
-        <p>This is a simple landing page with a side navigation bar.</p>
-        <button id="openGame">Open Game</button> <!-- New button to open the game -->
+    <div id="content" class="main-content">
+        <nav>
+            <i class='bx bx-menu'></i>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Welcome to the Makimo User Dashboard!</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">User</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a href="./landing.html" class="active">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image-button-container">
+                <img src="../assets/makimo thumb.png" width="300px">
+                <button id="openGame">Open Game</button> <!-- New button to open the game -->
+            </div>
+        </main>
     </div>
     <script src="../js/auth.js"></script>
     <script src="../js/landing.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>
