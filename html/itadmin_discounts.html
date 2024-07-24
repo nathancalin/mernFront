@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Admin - Discounts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="itadmin_landing.html">Home</a>
+        <a href="itadmin_profile.html">Profile</a>
+        <a href="itadmin_discounts.html">Discounts</a>
+        <a href="itadmin_leaderboard.html">Leaderboard</a>
+        <a href="itadmin_user.html">Users</a>
+        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>IT Admin Discounts</h1>
+        <p>This is the IT Admin discounts page.</p>
+
+        <!-- Create Discount Form -->
+        <div>
+            <label for="createName">Name:</label>
+            <input type="text" id="createName" required>
+            <label for="createDescription">Description:</label>
+            <input type="text" id="createDescription" required>
+            <label for="createUniqueCode">Unique Code:</label>
+            <input type="text" id="createUniqueCode" required>
+            <label for="createExpiryDate">Expiry Date:</label>
+            <input type="date" id="createExpiryDate" required>
+            <button id="createDiscountButton">Create New Discount</button>
+        </div>
+
+        <!-- Success Notification -->
+        <div id="successNotification" style="display:none; color: green; margin-top: 10px;">
+            Discount created successfully!
+        </div>
+
+        <h2>Unused Discounts</h2>
+        <table id="discountsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Unique Code</th>
+                    <th>Expiry Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Discounts will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <h2>Used Discounts</h2>
+        <table id="usedDiscountsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Unique Code</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Used discounts will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <!-- Modal for Creating/Updating Discount -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Discount</h2>
+                <form id="discountForm" onsubmit="event.preventDefault(); updateDiscount();">
+                    <input type="hidden" id="editDiscountId">
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName" required>
+                    <label for="editDescription">Description:</label>
+                    <input type="text" id="editDescription" required>
+                    <label for="editUniqueCode">Unique Code:</label>
+                    <input type="text" id="editUniqueCode" required>
+                    <label for="editExpiryDate">Expiry Date:</label>
+                    <input type="date" id="editExpiryDate" required>
+                    <button type="submit">Save</button>
+                    <button type="button" id="closeModal" onclick="closeEditModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../js/auth.js"></script>
+    <script src="../js/itadmin_discounts.js"></script>
+</body>
+</html>

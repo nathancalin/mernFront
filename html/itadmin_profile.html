@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Admin - Profiles</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="itadmin_landing.html">Home</a>
+        <a href="itadmin_profile.html">Profile</a>
+        <a href="itadmin_discounts.html">Discounts</a>
+        <a href="itadmin_leaderboard.html">Leaderboard</a>
+        <a href="itadmin_user.html">Users</a>
+        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>IT Admin - Profiles</h1>
+        <div id="profile-container">
+            <table id="profile-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="profile-table-body">
+                    <!-- Profiles will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for updating profile -->
+    <div id="updateProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Profile</h2>
+            <form id="updateProfileForm">
+                <input type="hidden" id="modalUserId">
+                <label for="modalFirstName">First Name:</label>
+                <input type="text" id="modalFirstName" name="firstName" required>
+                <label for="modalLastName">Last Name:</label>
+                <input type="text" id="modalLastName" name="lastName" required>
+                <label for="modalEmail">Email:</label>
+                <input type="email" id="modalEmail" name="email" required>
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/itadmin_profile.js"></script>
+</body>
+</html>

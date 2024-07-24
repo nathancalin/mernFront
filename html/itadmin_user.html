@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Admin - Users</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="itadmin_landing.html">Home</a>
+        <a href="itadmin_profile.html">Profile</a>
+        <a href="itadmin_discounts.html">Discounts</a>
+        <a href="itadmin_leaderboard.html">Leaderboard</a>
+        <a href="itadmin_user.html">Users</a>
+        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>IT Admin - Users</h1>
+        <div id="user-container">
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- Users will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for updating user -->
+    <div id="updateUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update User</h2>
+            <form id="updateUserForm">
+                <input type="hidden" id="modalUserId">
+                <label for="modalFirstName">First Name:</label>
+                <input type="text" id="modalFirstName" name="firstName" required>
+                <label for="modalLastName">Last Name:</label>
+                <input type="text" id="modalLastName" name="lastName" required>
+                <label for="modalUsername">Username:</label>
+                <input type="text" id="modalUsername" name="username" required>
+                <label for="modalEmail">Email:</label>
+                <input type="email" id="modalEmail" name="email" required>
+                <label for="modalRole">Role:</label>
+                <input type="text" id="modalRole" name="role" disabled>
+                <label for="modalCreatedAt">Created At:</label>
+                <input type="text" id="modalCreatedAt" name="createdAt" disabled>
+                <label for="modalUpdatedAt">Updated At:</label>
+                <input type="text" id="modalUpdatedAt" name="updatedAt" disabled>
+                <button type="submit">Update User</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/itadmin_user.js"></script>
+</body>
+</html>

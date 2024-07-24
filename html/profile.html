@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="landing.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="user-discounts.html">Discounts</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>Profile Page</h1>
+        <div id="profileContainer">
+            <!-- Profile content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Update Profile Modal -->
+    <div id="updateProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Profile</h2>
+            <form id="updateProfileForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Update Password Modal -->
+<div id="updatePasswordModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Update Password</h2>
+        <form id="updatePasswordForm">
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="../js/auth.js"></script>
+<script src="../js/profile.js"></script>
+</body>
+</html>

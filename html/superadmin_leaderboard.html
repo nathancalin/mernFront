@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin - Leaderboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="superadmin_landing.html">Home</a>
+        <a href="superadmin_profile.html">Profile</a>
+        <a href="superadmin_discounts.html">Discounts</a>
+        <a href="superadmin_leaderboard.html">Leaderboard</a>
+        <a href="superadmin_user.html">Users</a>
+        <a href="superadmin_levels.html">Levels</a> <!-- New link -->
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>Super Admin - Leaderboard</h1>
+        <div id="leaderboard-container">
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Profile ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Total Score</th>
+                        <th>Rank</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-table-body">
+                    <!-- Leaderboard entries will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for updating leaderboard entry -->
+    <div id="updateLeaderboardModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Leaderboard Entry</h2>
+            <form id="updateLeaderboardForm">
+                <!-- Hidden input for leaderboardId -->
+                <input type="hidden" id="modalLeaderboardId" name="leaderboardId" hidden>
+                <label for="modalProfileID">Profile ID:</label>
+                <input type="text" id="modalProfileID" name="profileID" readonly>
+                <label for="modalFirstName">First Name:</label>
+                <input type="text" id="modalFirstName" name="firstName" readonly>
+                <label for="modalLastName">Last Name:</label>
+                <input type="text" id="modalLastName" name="lastName" readonly>
+                <label for="modalTotalScore">Total Score:</label>
+                <input type="number" id="modalTotalScore" name="totalScore" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/superadmin_leaderboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Discounts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="landing.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="user-discounts.html">Discounts</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>Available Discounts</h1>
+        <div class="pagination">
+            <button id="prevButton">Previous</button>
+            <span id="paginationInfo">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+            <button id="nextButton">Next</button>
+        </div>   
+        
+        <table id="discountsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Unique Code</th>
+                    <th>Expiry Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="discountsBody">
+                <!-- Discounts will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <h1>Claimed Discounts</h1>
+        <div id="claimedDiscounts"></div>
+    </div>
+
+    <script src="../js/user-discounts.js"></script>
+</body>
+</html>

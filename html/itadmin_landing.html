@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Admin - Home</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="sidenav">
+        <a href="itadmin_landing.html">Home</a>
+        <a href="itadmin_profile.html">Profile</a>
+        <a href="itadmin_discounts.html">Discounts</a>
+        <a href="itadmin_leaderboard.html">Leaderboard</a>
+        <a href="itadmin_user.html">Users</a>
+        <a href="itadmin_levels.html">Levels</a> <!-- New link -->
+        <a href="#" id="logout">Logout</a>
+    </div>
+    <div class="main-content">
+        <h1>Welcome IT Admin!</h1>
+        <p>This is the IT Admin home page.</p>
+    </div>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('IT Admin landing page loaded');
+        
+            document.getElementById('logout').addEventListener('click', function() {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userRole');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>
