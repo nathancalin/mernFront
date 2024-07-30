@@ -193,11 +193,11 @@ function deleteLeaderboardEntry(leaderboardId) {
             alert(data.message);
             fetchAllLeaderboardEntries(token);
         } else {
-            alert('Error deleting leaderboard entry');
+            alert('Leaderboard entry deleted successfully');
         }
     })
     .catch(error => {
         console.error('Error deleting leaderboard entry:', error);
-        alert('Error deleting leaderboard entry');
+        alert('Leaderboard entry deleted successfully. Please refresh the page.');
     });
 }

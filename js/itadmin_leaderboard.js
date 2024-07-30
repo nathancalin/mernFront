@@ -122,39 +122,36 @@ function populateModal(entry) {
     document.getElementById('modalTotalScore').value = entry.totalScore;
 }
 
-function updateLeaderboardEntry(entry) {
+function updateLeaderboardEntry(updatedEntry) {
     const token = localStorage.getItem('token');
 
-    fetch(`https://makimobackend.onrender.com/api/leaderboards/admin/update/${entry.leaderboardId}`, {
+    fetch(`https://makimobackend.onrender.com/api/leaderboards/admin/update/${updatedEntry.leaderboardId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-            profileID: entry.profileID,
-            firstName: entry.firstName,
-            lastName: entry.lastName,
-            totalScore: entry.totalScore
-        })
+        body: JSON.stringify(updatedEntry)
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            return response.json().then(data => {
+                throw new Error(data.message || 'Network response was not ok');
+            });
         }
         return response.json();
     })
     .then(data => {
-        if (data._id) {
-            alert('Leaderboard entry updated successfully');
-            fetchAllLeaderboardEntries(token);
-            document.getElementById('updateLeaderboardModal').style.display = 'none';
-        } else {
-            alert('Error updating leaderboard entry');
-        }
+        console.log('Updated leaderboard entry:', data);
+        // Refresh the leaderboard table
+        fetchAllLeaderboardEntries(token);
+        // Close the modal
+        document.getElementById('updateLeaderboardModal').style.display = 'none';
+        // Show success notification
+        alert('Leaderboard entry updated successfully');
     })
     .catch(error => {
         console.error('Error updating leaderboard entry:', error);
-        alert('Error updating leaderboard entry');
+        alert('Error updating leaderboard entry: ' + error.message);
     });
 }

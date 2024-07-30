@@ -67,24 +67,19 @@
     cursor: pointer;
 }
 
-#updateProfileForm {
-    display: flex;
-    flex-direction: column;
-}
-
-#updateProfileForm label {
+#updateLeaderboardModal label {
     margin-bottom: 10px;
     color: var(--dark);
 }
 
-#updateProfileForm input {
+#updateLeaderboardModal input {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid var(--grey);
     border-radius: 5px;
 }
 
-#updateProfileForm button {
+#updateLeaderboardModal button {
     padding: 10px 20px;
     background-color: var(--blue);
     color: var(--light);
@@ -93,7 +88,7 @@
     cursor: pointer;
 }
 
-#updateProfileForm button:hover {
+#updateLeaderboardModal button:hover {
     background-color: var(--dark);
 }
 

@@ -65,20 +65,22 @@
         </main>
     </div>
 
-    <!-- Modal for updating profile -->
-    <div id="updateProfileModal" class="modal">
+    <!-- Modal for updating leaderboard entry -->
+    <div id="updateLeaderboardModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Update Profile</h2>
-            <form id="updateProfileForm">
-                <input type="hidden" id="modalUserId">
+            <h2>Update Leaderboard Entry</h2>
+            <form id="updateLeaderboardForm">
+                <input type="hidden" id="modalLeaderboardId"><br>
+                <label for="modalProfileID">Profile ID:</label>
+                <input type="text" id="modalProfileID" name="profileID" disabled><br>
                 <label for="modalFirstName">First Name:</label>
-                <input type="text" id="modalFirstName" name="firstName" required>
+                <input type="text" id="modalFirstName" name="firstName" required><br>
                 <label for="modalLastName">Last Name:</label>
-                <input type="text" id="modalLastName" name="lastName" required>
-                <label for="modalEmail">Email:</label>
-                <input type="email" id="modalEmail" name="email" required>
-                <button type="submit">Update Profile</button>
+                <input type="text" id="modalLastName" name="lastName" required><br>
+                <label for="modalTotalScore">Total Score:</label>
+                <input type="number" id="modalTotalScore" name="totalScore" required><br>
+                <button type="submit">Update Entry</button>
             </form>
         </div>
     </div>
