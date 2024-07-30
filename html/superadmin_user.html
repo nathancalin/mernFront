@@ -83,7 +83,11 @@
                 <label for="modalEmail">Email:</label>
                 <input type="email" id="modalEmail" name="email" required>
                 <label for="modalRole">Role:</label>
-                <input type="text" id="modalRole" name="role" disabled>
+                <select id="modalRole" name="role" required>
+                    <option value="user">User</option>
+                    <option value="itAdmin">IT Admin</option>
+                    <option value="superadmin">Super Admin</option>
+                </select>
                 <label for="modalCreatedAt">Created At:</label>
                 <input type="text" id="modalCreatedAt" name="createdAt" disabled>
                 <label for="modalUpdatedAt">Updated At:</label>

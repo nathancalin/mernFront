@@ -97,3 +97,9 @@
     background-color: var(--dark);
 }
 
+#updateUserForm select{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+}
