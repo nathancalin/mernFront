@@ -107,8 +107,7 @@ function displayDiscounts(discounts) {
 function displayClaimedDiscounts(claimedDiscounts) {
     const claimedDiscountsContainer = document.getElementById('claimedDiscounts');
     if (claimedDiscountsContainer) {
-        claimedDiscountsContainer.innerHTML = `
-            <h2>Claimed Discounts</h2>
+        claimedDiscountsContainer.innerHTML = `            
             <table>
                 <thead>
                     <tr>

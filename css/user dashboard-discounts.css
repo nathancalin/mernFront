@@ -48,5 +48,24 @@
 }
 
 #claimedDiscounts {
-    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+#claimedDiscounts th, #claimedDiscounts td {
+    padding: 12px 15px;
+    border: 1px solid var(--grey);
+    text-align: left;
+}
+
+#claimedDiscounts th {
+    background-color: #fefefe;
+    color: #000;
+}
+
+#claimedDiscounts tbody tr:nth-child(even) {
+    background-color: var(--light-grey);
 }
