@@ -18,7 +18,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     console.log(data);
 
     if (response.status === 201) {
-        alert('User successfully created');
+        alert('Signup successful. Please check your email to verify your account.');
         document.getElementById('signupForm').reset();
     } else {
         alert('Error creating user: ' + data.message);
