@@ -2,6 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchDiscounts();
     fetchUsedDiscounts();
 
+    // Logout event listener
+    document.getElementById('logout').addEventListener('click', function() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userRole');
+        window.location.href = 'login.html';
+    });
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        window.location.href = 'login.html';
+        return;
+    }
+
     document.querySelector('#createDiscountButton').addEventListener('click', createDiscount);
 });
 
@@ -23,11 +37,12 @@ function fetchDiscounts() {
 
         data.discounts.forEach(discount => {
             const row = document.createElement('tr');
+            const expiryDate = new Date(discount.expiryDate);
             row.innerHTML = `
                 <td>${discount.name}</td>
                 <td>${discount.description}</td>
                 <td>${discount.uniqueCode}</td>
-                <td>${new Date(discount.expiryDate).toLocaleDateString()}</td>
+                <td>${expiryDate.toLocaleString()}</td>
                 <td>
                     <button onclick="openEditModal('${discount._id}')">Edit</button>
                     <button onclick="markAsUsed('${discount._id}')">Mark as Used</button>
@@ -62,11 +77,12 @@ function fetchUsedDiscounts() {
 
         data.usedDiscounts.forEach(discount => {
             const row = document.createElement('tr');
+            const expiryDate = new Date(discount.expiryDate);
             row.innerHTML = `
                 <td>${discount.name}</td>
                 <td>${discount.description}</td>
                 <td>${discount.uniqueCode}</td>
-                <td>${new Date(discount.expiryDate).toLocaleDateString()}</td>
+                <td>${expiryDate.toLocaleString()}</td>
                 <td>
                     <button onclick="markAsUnused('${discount._id}')">Make Unused</button>
                     <button onclick="deleteUsedDiscount('${discount._id}')">Delete</button>
@@ -179,11 +195,17 @@ function openEditModal(discountId) {
         document.querySelector('#editName').value = discount.name;
         document.querySelector('#editDescription').value = discount.description;
         document.querySelector('#editUniqueCode').value = discount.uniqueCode;
-        document.querySelector('#editExpiryDate').value = discount.expiryDate.split('T')[0];
+
+        // Format expiryDate for datetime-local input
+        const expiryDate = new Date(discount.expiryDate);
+        const formattedDate = expiryDate.toISOString().slice(0, 16);
+
+        document.querySelector('#editExpiryDate').value = formattedDate;
         document.querySelector('#editModal').style.display = 'block';
     })
     .catch(error => console.error('Error fetching discount details:', error));
 }
+
 
 function closeEditModal() {
     document.querySelector('#editModal').style.display = 'none';
@@ -193,7 +215,7 @@ function createDiscount() {
     const name = document.querySelector('#createName').value;
     const description = document.querySelector('#createDescription').value;
     const uniqueCode = document.querySelector('#createUniqueCode').value;
-    const expiryDate = document.querySelector('#createExpiryDate').value;
+    const expiryDate = new Date(document.querySelector('#createExpiryDate').value).toISOString(); // Convert to UTC
 
     fetch('https://makimobackend.onrender.com/api/discounts/create', {
         method: 'POST',
@@ -232,7 +254,7 @@ function updateDiscount() {
     const name = document.querySelector('#editName').value;
     const description = document.querySelector('#editDescription').value;
     const uniqueCode = document.querySelector('#editUniqueCode').value;
-    const expiryDate = document.querySelector('#editExpiryDate').value;
+    const expiryDate = new Date(document.querySelector('#editExpiryDate').value).toISOString(); // Convert to UTC
 
     fetch(`https://makimobackend.onrender.com/api/discounts/update/${discountId}`, {
         method: 'PUT',

@@ -58,8 +58,8 @@
                 <input type="text" id="createDescription" required>
                 <label for="createUniqueCode">Unique Code:</label>
                 <input type="text" id="createUniqueCode" required>
-                <label for="createExpiryDate">Expiry Date:</label>
-                <input type="date" id="createExpiryDate" required>
+                <label for="createExpiryDate">Expiry Date & Time:</label>
+                <input type="datetime-local" id="createExpiryDate" required>
                 <button id="createDiscountButton">Create New Discount</button>
             </div>
 
@@ -138,8 +138,8 @@
                     <input type="text" id="editDescription" required>
                     <label for="editUniqueCode">Unique Code:</label>
                     <input type="text" id="editUniqueCode" required>
-                    <label for="editExpiryDate">Expiry Date:</label>
-                    <input type="date" id="editExpiryDate" required>
+                    <label for="editExpiryDate">Expiry Date & Time:</label>
+                    <input type="datetime-local" id="editExpiryDate" required>
                     <button type="submit">Save</button>
                     <button type="button" id="closeModal" onclick="closeEditModal()">Cancel</button>
                 </form>

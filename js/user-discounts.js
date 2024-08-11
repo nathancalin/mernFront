@@ -99,7 +99,7 @@ function displayDiscounts(discounts) {
             <td>${discount.name}</td>
             <td>${discount.description}</td>
             <td>${discount.uniqueCode}</td>
-            <td>${new Date(discount.expiryDate).toLocaleDateString()}</td>
+            <td>${new Date(discount.expiryDate).toLocaleString()}</td> <!-- Updated to include date and time -->
             <td><button onclick="claimDiscount('${discount._id}')">Claim</button></td>
         </tr>
     `).join('');
@@ -126,7 +126,7 @@ function displayClaimedDiscounts(claimedDiscounts) {
                             <td>${claimedDiscount.name}</td>
                             <td>${claimedDiscount.description}</td>
                             <td>${claimedDiscount.uniqueCode}</td>
-                            <td>${new Date(claimedDiscount.expiryDate).toLocaleDateString()}</td>
+                            <td>${new Date(claimedDiscount.expiryDate).toLocaleString()}</td> <!-- Updated to include date and time -->
                             <td>${claimedDiscount.used ? 'Yes' : 'No'}</td>
                         </tr>
                     `).join('')}
