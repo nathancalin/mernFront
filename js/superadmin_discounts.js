@@ -36,6 +36,10 @@ function fetchDiscounts() {
             `;
             discountTable.appendChild(row);
         });
+        
+        // Apply filter and sorting after fetching data
+        filterDiscounts();
+        sortDiscounts();
     })
     .catch(error => console.error('Error fetching discounts:', error));
 }
@@ -70,8 +74,92 @@ function fetchUsedDiscounts() {
             `;
             usedDiscountsTable.appendChild(row);
         });
+        
+        // Apply filter and sorting after fetching data
+        filterUsedDiscounts();
+        sortUsedDiscounts();
     })
     .catch(error => console.error('Error fetching used discounts:', error));
+}
+
+function filterDiscounts() {
+    const filterInput = document.getElementById('filterInput').value.toLowerCase();
+    const discountsTable = document.getElementById('discountsTable');
+    const rows = discountsTable.getElementsByTagName('tr');
+
+    for (let i = 1; i < rows.length; i++) { // Start from 1 to skip the header row
+        const nameCell = rows[i].getElementsByTagName('td')[0];
+        const uniqueCodeCell = rows[i].getElementsByTagName('td')[2];
+        const name = nameCell.textContent.toLowerCase();
+        const uniqueCode = uniqueCodeCell.textContent.toLowerCase();
+
+        if (name.includes(filterInput) || uniqueCode.includes(filterInput)) {
+            rows[i].style.display = '';
+        } else {
+            rows[i].style.display = 'none';
+        }
+    }
+}
+
+
+function sortDiscounts() {
+    const sortSelect = document.querySelector('#sortSelect').value;
+    const rows = Array.from(document.querySelectorAll('#discountsTable tbody tr'));
+
+    rows.sort((a, b) => {
+        const aValue = sortSelect === 'name' ? a.querySelector('td:first-child').textContent.toLowerCase() : new Date(a.querySelector('td:nth-child(4)').textContent);
+        const bValue = sortSelect === 'name' ? b.querySelector('td:first-child').textContent.toLowerCase() : new Date(b.querySelector('td:nth-child(4)').textContent);
+
+        if (aValue > bValue) return 1;
+        if (aValue < bValue) return -1;
+        return 0;
+    });
+
+    const discountTableBody = document.querySelector('#discountsTable tbody');
+    discountTableBody.innerHTML = '';
+    rows.forEach(row => discountTableBody.appendChild(row));
+}
+
+// Filter used discounts by name or unique code
+function filterUsedDiscounts() {
+    const filterInput = document.querySelector('#usedfilterInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#usedDiscountsTable tbody tr');
+
+    rows.forEach(row => {
+        const name = row.querySelector('td:first-child').textContent.toLowerCase();
+        const uniqueCode = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+        if (name.includes(filterInput) || uniqueCode.includes(filterInput)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+// Sort used discounts by name or expiry date
+function sortUsedDiscounts() {
+    const sortSelect = document.querySelector('#usedsortSelect').value;
+    const tbody = document.querySelector('#usedDiscountsTable tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.sort((a, b) => {
+        let aValue, bValue;
+
+        if (sortSelect === 'name') {
+            aValue = a.querySelector('td:first-child').textContent.toLowerCase();
+            bValue = b.querySelector('td:first-child').textContent.toLowerCase();
+        } else if (sortSelect === 'expiryDate') {
+            aValue = new Date(a.querySelector('td:nth-child(4)').textContent);
+            bValue = new Date(b.querySelector('td:nth-child(4)').textContent);
+        }
+
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+    });
+
+    // Clear the table body and append sorted rows
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 function openEditModal(discountId) {

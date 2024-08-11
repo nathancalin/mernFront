@@ -21,6 +21,8 @@ function navigatePagination(direction) {
     fetchDiscounts(currentPage);
 }
 
+let discountsData = []; // To store the discounts fetched from the server
+
 // Function to fetch discounts
 async function fetchDiscounts(pageNumber = 1) {
     try {
@@ -34,8 +36,8 @@ async function fetchDiscounts(pageNumber = 1) {
         if (response.ok) {
             const responseData = await response.json();
             if (Array.isArray(responseData.discounts)) {
-                const unclaimedDiscounts = responseData.discounts.filter(discount => !discount.userId);
-                displayDiscounts(unclaimedDiscounts);
+                discountsData = responseData.discounts.filter(discount => !discount.userId);
+                displayDiscounts(discountsData);
                 updatePagination(responseData.currentPage, responseData.totalPages);
             } else {
                 console.error('Error fetching discounts: Unexpected response format', responseData);
@@ -181,3 +183,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prevButton').addEventListener('click', () => navigatePagination('prev'));
     document.getElementById('nextButton').addEventListener('click', () => navigatePagination('next'));
 });
+
+// Function to filter discounts
+function filterDiscounts() {
+    const filterValue = document.getElementById('filterInput').value.toLowerCase();
+    const filteredDiscounts = discountsData.filter(discount =>
+        discount.name.toLowerCase().includes(filterValue)
+    );
+    displayDiscounts(filteredDiscounts);
+}
+
+// Function to sort discounts
+function sortDiscounts() {
+    const sortValue = document.getElementById('sortSelect').value;
+    const sortedDiscounts = [...discountsData].sort((a, b) => {
+        if (sortValue === 'name') {
+            return a.name.localeCompare(b.name);
+        } else if (sortValue === 'expiryDate') {
+            return new Date(a.expiryDate) - new Date(b.expiryDate);
+        }
+    });
+    displayDiscounts(sortedDiscounts);
+}

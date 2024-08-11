@@ -49,7 +49,19 @@
                 <button id="prevButton">Previous</button>
                 <span id="paginationInfo">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
                 <button id="nextButton">Next</button>
-            </div>   
+
+                <div class="filter">
+                    <label for="filterInput">Filter by Name:</label>
+                    <input type="text" id="filterInput" onkeyup="filterDiscounts()">
+                    
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect" onchange="sortDiscounts()">
+                        <option value="name">Name</option>
+                        <option value="expiryDate">Expiry Date</option>
+                    </select>
+                </div>
+            
+            </div>    
             <table id="discountsTable">
                 <thead>
                     <tr>

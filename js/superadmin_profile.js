@@ -13,6 +13,56 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
         return;
     }
+    
+     // Filtering functionality
+     document.getElementById('profileFilter').addEventListener('input', function() {
+        const filterValue = this.value.toLowerCase();
+        const tableRows = document.querySelectorAll('#profile-table-body tr');
+
+        tableRows.forEach(row => {
+            const userId = row.cells[0].textContent.toLowerCase();
+            const firstName = row.cells[1].textContent.toLowerCase();
+            const lastName = row.cells[2].textContent.toLowerCase();
+            const email = row.cells[3].textContent.toLowerCase();
+
+            if (userId.includes(filterValue) || firstName.includes(filterValue) ||
+                lastName.includes(filterValue) || email.includes(filterValue)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    // Sorting functionality
+    document.getElementById('profileSort').addEventListener('change', function() {
+        const sortKey = this.value;
+        const tableBody = document.getElementById('profile-table-body');
+        const rowsArray = Array.from(tableBody.rows);
+
+        rowsArray.sort((a, b) => {
+            const cellA = a.querySelector(`td:nth-child(${getSortColumnIndex(sortKey)})`).textContent;
+            const cellB = b.querySelector(`td:nth-child(${getSortColumnIndex(sortKey)})`).textContent;
+            
+            if (cellA < cellB) return -1;
+            if (cellA > cellB) return 1;
+            return 0;
+        });
+
+        // Re-append sorted rows
+        tableBody.innerHTML = '';
+        rowsArray.forEach(row => tableBody.appendChild(row));
+    });
+
+    function getSortColumnIndex(sortKey) {
+        switch (sortKey) {
+            case 'userId': return 1;
+            case 'firstName': return 2;
+            case 'lastName': return 3;
+            case 'email': return 4;
+            default: return 1;
+        }
+    }
 
     fetchAllProfiles(token);
 

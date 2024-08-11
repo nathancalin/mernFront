@@ -69,6 +69,17 @@
             </div>
 
             <h1>Unused Discounts</h1>
+            <div class="pagination">
+                <div class="filter">
+                <label for="filterInput">Filter by Name or Unique Code:</label>
+                <input type="text" id="filterInput" onkeyup="filterDiscounts()">
+                
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" onchange="sortDiscounts()">
+                    <option value="name">Name</option>
+                    <option value="expiryDate">Expiry Date</option>
+                </select>
+            </div>
             <table id="discountsTable">
                 <thead>
                     <tr>
@@ -85,6 +96,18 @@
             </table>
 
             <h1>Used Discounts</h1>
+            <div class="pagination">
+                <div class="filter">
+                    <label for="usedfilterInput">Filter by Name or Unique Code:</label>
+                    <input type="text" id="usedfilterInput" onkeyup="filterUsedDiscounts()">
+                    
+                    <label for="usedsortSelect">Sort by:</label>
+                    <select id="usedsortSelect" onchange="sortUsedDiscounts()">
+                        <option value="name">Name</option>
+                        <option value="expiryDate">Expiry Date</option>
+                    </select>
+                </div>
+            </div>
             <table id="usedDiscountsTable">
                 <thead>
                     <tr>

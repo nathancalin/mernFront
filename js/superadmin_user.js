@@ -42,6 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     };
+
+    // Add filtering functionality
+    document.getElementById('userFilter').addEventListener('input', filterUsers);
+
+    // Add sorting functionality
+    document.getElementById('userSort').addEventListener('change', sortUsers);
 });
 
 function fetchAllUsers(token) {
@@ -115,6 +121,63 @@ function displayUsers(users) {
             }
         });
     });
+}
+
+function filterUsers(event) {
+    const filterValue = event.target.value.toLowerCase();
+    const rows = document.querySelectorAll('#user-table tbody tr');
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const [firstName, lastName, username, email, role] = cells;
+
+        if (firstName.textContent.toLowerCase().includes(filterValue) ||
+            lastName.textContent.toLowerCase().includes(filterValue) ||
+            username.textContent.toLowerCase().includes(filterValue) ||
+            email.textContent.toLowerCase().includes(filterValue) ||
+            role.textContent.toLowerCase().includes(filterValue)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function sortUsers(event) {
+    const sortBy = event.target.value;
+    const tableBody = document.getElementById('user-table-body');
+    const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+    rows.sort((a, b) => {
+        const aText = a.querySelector(`td:nth-child(${getSortIndex(sortBy)})`).textContent.toLowerCase();
+        const bText = b.querySelector(`td:nth-child(${getSortIndex(sortBy)})`).textContent.toLowerCase();
+
+        if (aText < bText) return -1;
+        if (aText > bText) return 1;
+        return 0;
+    });
+
+    tableBody.innerHTML = '';
+    rows.forEach(row => tableBody.appendChild(row));
+}
+
+function getSortIndex(sortBy) {
+    switch (sortBy) {
+        case 'firstName':
+            return 1;
+        case 'lastName':
+            return 2;
+        case 'username':
+            return 3;
+        case 'email':
+            return 4;
+        case 'role':
+            return 5;
+        case 'createdAt':
+            return 6;
+        default:
+            return 1;
+    }
 }
 
 function openUpdateModal(user) {

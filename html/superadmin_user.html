@@ -47,6 +47,20 @@
                     </ul>
                 </div>
             </div>
+            <!-- Add this inside the <main> tag, above the table -->
+            <div class="filter-sort-container">
+                <label for="userFilter">Search by First Name, Last Name, Username, Email, or Role:</label>
+                <input type="text" id="userFilter" placeholder="Search by First Name, Last Name, Username, Email, or Role">
+                <label for="userSort">Sort by:</label>
+                <select id="userSort">
+                    <option value="firstName">Sort by First Name</option>
+                    <option value="lastName">Sort by Last Name</option>
+                    <option value="username">Sort by Username</option>
+                    <option value="email">Sort by Email</option>
+                    <option value="role">Sort by Role</option>
+                    <option value="createdAt">Sort by Date Created</option>
+                </select>
+            </div>
             <table id="user-table">
                 <thead>
                     <tr>

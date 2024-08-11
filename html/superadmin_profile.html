@@ -47,6 +47,17 @@
                     </ul>
                 </div>
             </div>
+            <div class="filter-sort-container">
+                <label for="profileFilter">Search by User ID, First Name, Last Name, or Email   :</label>
+                <input type="text" id="profileFilter" placeholder="Search by User ID, First Name, Last Name, or Email">
+                <label for="profileSort">Sort by:</label>
+                <select id="profileSort">
+                    <option value="userId">Sort by User ID</option>
+                    <option value="firstName">Sort by First Name</option>
+                    <option value="lastName">Sort by Last Name</option>
+                    <option value="email">Sort by Email</option>
+                </select>
+            </div>
             <table id="profile-table">
                 <thead>
                     <tr>
