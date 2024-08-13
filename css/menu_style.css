@@ -1,0 +1,276 @@
+/* BANNEEEEEEEEEEEEEEER */
+
+.menu-banner {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 300px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.menu-banner > img {
+  width: 100%;
+  height: 500px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.6;
+}
+
+.menu-banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.menu-banner-text-heading {
+  font-size: 3em;
+  font-weight: bold;
+
+}
+
+.menu-banner-text-subheading {
+  font-size: 1em;
+}
+
+/* BANNEEEEEEEEEEEEEEER */
+
+/* CAAAAAAAAAAAAAAAAARDS */
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6em 1.5em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 0 8rem;
+}
+
+.card {
+  background: white;
+  width: 200px;
+  height: 230px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+  margin: 0 auto;
+}
+
+.card-footer > a {
+  color: #555;
+  text-decoration: none;
+}
+
+.card-text {
+  color: #000000;
+  font-size: 1.5rem;
+  width: 200px;
+  height: 20px;
+  text-align: center;
+  padding: 4px 0px;
+  transition: 200ms all ease-in-out;
+}
+
+.card-image {
+  overflow: hidden;
+  height: 200px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: black;
+}
+
+.card-image > img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  opacity: 0.3;
+}
+
+.card-image > a {
+  display: inline-block;
+  height: 200px;
+  transition: 200ms all ease-in-out;
+  opacity: 0.7;
+}
+
+.card:hover > .card-image > a {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.card:hover > .card-footer > a > .card-text {
+  color: #f7ca3e;
+}
+
+/* CAAAAAAAAAAAAAAAAARDS */
+
+/* MENUUUUUUUUUUUU */
+
+.menu {
+  font-size: 14px;
+}
+
+.menu-group-heading {
+  margin: 0;
+  padding: 2em 1.5em .5em 1.5em;
+  text-align: center;
+  border-bottom: 2px solid #C85103;
+  font-size: 2em;
+}
+
+.menu-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em 3em;
+  padding: .5em 0 1em 0;
+}
+
+.mainmenu-item {
+  display: flex;
+  padding: .5em;
+}
+
+.menu-item-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 1em;
+  border-radius: 7%;
+}
+
+.menu-item-text {
+  flex-grow: 1;
+}
+
+.menu-item-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  transition: 150ms all ease-in-out;
+}
+
+.menu-item-name {
+  margin-right: 1.5em;
+  text-align: left;
+}
+
+.menu-item-description {
+  margin-top: 0.5em;
+  line-height: 1.6;
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  transition: 150ms all ease-in-out;
+}
+
+.mainmenu-item:hover > .menu-item-text > .menu-item-heading {
+  color: #C85103;
+}
+
+.mainmenu-item:hover > .menu-item-text > .menu-item-description {
+  color: #C85103;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5em 0;
+  padding: 0 0 2em 0;
+}
+
+.btn-container .btn {
+  background-color: #C85103;
+}
+
+/* MENUUUUUUUUUUUU */
+
+/* RESPONSIIIIIIIIIIIIIIIVE */
+
+/* @media screen and (min-width: 500px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
+@media screen and (min-width: 650px) {
+  .menu-banner {
+    height: 370px;
+  }
+
+  .menu-banner-text-heading {
+    font-size: 3em;
+  }
+  
+  .menu-banner-text-subheading {
+    font-size: 1em;
+  }
+  
+  .menu-item-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 730px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-banner {
+    height: 430px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menu-banner {
+    height: 470px;
+  }
+  
+  .menu {
+    font-size: 16px;
+  }
+
+  .menu-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .menu-banner {
+    height: 500px;
+  }
+  
+  /* .menu-group {
+    grid-template-columns: repeat(3, 1fr);
+  } */
+
+  .menu-item-image {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+/* RESPONSIIIIIIIIIIIIIIIVE */

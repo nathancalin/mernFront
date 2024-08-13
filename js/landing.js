@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     document.getElementById('openGame').addEventListener('click', function() {
-        window.open('/game/index.html?token=' + token, '_blank');
+        window.open('instructions.html');
     });
 
     document.getElementById('logout').addEventListener('click', function() {
