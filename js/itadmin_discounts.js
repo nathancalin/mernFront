@@ -46,7 +46,7 @@ function fetchDiscounts() {
                 <td>
                     <button onclick="openEditModal('${discount._id}')">Edit</button>
                     <button onclick="markAsUsed('${discount._id}')">Mark as Used</button>
-                    <button onclick="deleteDiscount('${discount._id}')">Delete</button>
+                    
                 </td>
             `;
             discountTable.appendChild(row);
@@ -284,7 +284,7 @@ function fetchUsedDiscounts() {
                 <td>${expiryDate.toLocaleString()}</td>
                 <td>
                     <button onclick="markAsUnused('${discount._id}')">Make Unused</button>
-                    <button onclick="deleteUsedDiscount('${discount._id}')">Delete</button>
+                    
                 </td>
             `;
             usedDiscountsTable.appendChild(row);
