@@ -282,10 +282,7 @@ function fetchUsedDiscounts() {
                 <td>${discount.description}</td>
                 <td>${discount.uniqueCode}</td>
                 <td>${expiryDate.toLocaleString()}</td>
-                <td>
-                    <button onclick="markAsUnused('${discount._id}')">Make Unused</button>
-                    
-                </td>
+                
             `;
             usedDiscountsTable.appendChild(row);
         });
